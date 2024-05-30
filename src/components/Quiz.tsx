@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { QuestionCard } from './QuestionCard';
-import { shuffleArray } from '../utils';
+import React, { useState, useEffect } from "react";
+import { QuestionCard } from "./QuestionCard";
+import { Summary } from "./Summary";
+import { shuffleArray } from "../utils";
+import { Question } from '../types';
 
-interface Question {
-  category: string;
-  type: string;
-  difficulty: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-}
+
 
 interface QuizProps {
-  difficulty: string;
+  level: string;
+  setLevel: (level: string) => void;
 }
 
-const Quiz: React.FC<QuizProps> = ({ difficulty }) => {
+const Quiz: React.FC<QuizProps> = ({ level, setLevel }) => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -23,27 +19,34 @@ const Quiz: React.FC<QuizProps> = ({ difficulty }) => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/questions');
+        const response = await fetch("http://localhost:3001/api/questions");
         const data = await response.json();
         const results = data.results as Question[]; // Cast to Question[]
-        const filteredQuestions = results.filter((question) => question.difficulty === difficulty);
-        const shuffledQuestions = shuffleArray(filteredQuestions).slice(0, getQuestionLimit(difficulty));
+        const shuffledQuestions = shuffleArray(results).slice(
+          0,
+          getQuestionLimit(level)
+        );
         setQuestions(shuffledQuestions);
       } catch (error) {
-        console.error('Error fetching questions:', error);
+        console.error("Error fetching questions:", error);
       }
     };
 
     fetchQuestions();
-  }, [difficulty]);
+  }, [level]);
 
-  const getQuestionLimit = (difficulty: string): number => {
-    switch (difficulty) {
-      case 'easy': return 10;
-      case 'medium': return 20;
-      case 'hard': return 30;
-      case 'sparta': return 40;
-      default: return 10;
+  const getQuestionLimit = (level: string): number => {
+    switch (level) {
+      case "easy":
+        return 10;
+      case "medium":
+        return 20;
+      case "hard":
+        return 30;
+      case "sparta":
+        return 40;
+      default:
+        return 10;
     }
   };
 
@@ -54,18 +57,26 @@ const Quiz: React.FC<QuizProps> = ({ difficulty }) => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
+  const restartQuiz = () => {
+    setLevel(""); // Reset level to allow user to choose again
+    setQuestions([]);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+  };
+
   return (
     <div>
       {currentQuestionIndex < questions.length ? (
-        <QuestionCard 
-          question={questions[currentQuestionIndex]} 
-          handleAnswer={handleAnswer} 
+        <QuestionCard
+          question={questions[currentQuestionIndex]}
+          handleAnswer={handleAnswer}
         />
       ) : (
-        <div>
-          <h2>Quiz Complete!</h2>
-          <p>Your Score: {score}</p>
-        </div>
+        <Summary
+          score={score}
+          questions={questions}
+          restartQuiz={restartQuiz}
+        />
       )}
     </div>
   );
