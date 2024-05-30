@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import GlobalStyle from './styles/GlobalStyle'
 import { Quiz } from './components/Quiz';
 
 const App: React.FC = () => {
@@ -9,6 +10,8 @@ const App: React.FC = () => {
   };
 
   return (
+    <>
+    <GlobalStyle />
     <div>
       {!difficulty ? (
         <div>
@@ -20,8 +23,9 @@ const App: React.FC = () => {
         </div>
       ) : (
         <Quiz difficulty={difficulty} setDifficulty={setDifficulty}/>
-      )}
+        )}
     </div>
+        </>
   );
 };
 
