@@ -7,11 +7,12 @@ import { Question } from '../types';
 
 
 interface QuizProps {
-  level: string;
-  setLevel: (level: string) => void;
+  difficulty: string;
+  setDifficulty: (difficulty: string) => void;
 }
 
-const Quiz: React.FC<QuizProps> = ({ level, setLevel }) => {
+const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
+  console.log("difficulty: ", difficulty);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -24,7 +25,7 @@ const Quiz: React.FC<QuizProps> = ({ level, setLevel }) => {
         const results = data.results as Question[]; // Cast to Question[]
         const shuffledQuestions = shuffleArray(results).slice(
           0,
-          getQuestionLimit(level)
+          getQuestionLimit(difficulty)
         );
         setQuestions(shuffledQuestions);
       } catch (error) {
@@ -33,10 +34,10 @@ const Quiz: React.FC<QuizProps> = ({ level, setLevel }) => {
     };
 
     fetchQuestions();
-  }, [level]);
+  }, [difficulty]);
 
-  const getQuestionLimit = (level: string): number => {
-    switch (level) {
+  const getQuestionLimit = (difficulty: string): number => {
+    switch (difficulty) {
       case "easy":
         return 10;
       case "medium":
@@ -58,7 +59,7 @@ const Quiz: React.FC<QuizProps> = ({ level, setLevel }) => {
   };
 
   const restartQuiz = () => {
-    setLevel(""); // Reset level to allow user to choose again
+    setDifficulty(""); // Reset difficulty to allow user to choose again
     setQuestions([]);
     setCurrentQuestionIndex(0);
     setScore(0);

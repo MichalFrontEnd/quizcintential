@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Quiz } from './components/Quiz';
 
 const App: React.FC = () => {
-  const [level, setLevel] = useState<string | null>(null);
+  const [difficulty, setDifficulty] = useState<string | null>(null);
 
-  const handleLevelChange = (newLevel: string) => {
-    setLevel(newLevel);
+  const handleDifficultyChange = (newDifficulty: string) => {
+    setDifficulty(newDifficulty);
   };
 
   return (
     <div>
-      {!level ? (
+      {!difficulty ? (
         <div>
-          <h1>Select Level</h1>
-          <button onClick={() => handleLevelChange('easy')}>Easy</button>
-          <button onClick={() => handleLevelChange('medium')}>Moderate</button>
-          <button onClick={() => handleLevelChange('hard')}>Madness</button>
-          <button onClick={() => handleLevelChange('sparta')}>Sparta</button>
+          <h1>Select Difficulty</h1>
+          <button onClick={() => handleDifficultyChange('easy')}>Easy</button>
+          <button onClick={() => handleDifficultyChange('medium')}>Moderate</button>
+          <button onClick={() => handleDifficultyChange('hard')}>Madness</button>
+          <button onClick={() => handleDifficultyChange('sparta')}>Sparta</button>
         </div>
       ) : (
-        <Quiz level={level} setLevel={setLevel}/>
+        <Quiz difficulty={difficulty} setDifficulty={setDifficulty}/>
       )}
     </div>
   );
