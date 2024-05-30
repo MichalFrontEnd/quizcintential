@@ -9,6 +9,7 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.97",
     "axios": "^1.7.2",
+    "he": "^1.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
-    "start:frontend": "npm --prefix frontend start",
+    "start:frontend": "react-scripts start",
     "start:backend": "npm --prefix backend start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/he": "^1.2.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "concurrently": "^8.2.2"
