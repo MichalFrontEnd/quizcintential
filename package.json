@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
-    "start:frontend": "npm --prefix frontend start",
+    "start:frontend": "react-scripts start",
     "start:backend": "npm --prefix backend start",
     "build": "react-scripts build",
     "test": "react-scripts test",
