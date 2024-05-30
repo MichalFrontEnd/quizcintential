@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import he from 'he';
+import he from "he";
 import { shuffleArray } from "../utils";
 import { Question } from "../types";
-
 
 interface QuestionCardProps {
   question: Question;
@@ -19,7 +18,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   const answers =
     question.type !== "text"
       ? shuffleArray([...question.incorrect_answers, question.correct_answer])
-      : [];
+      : null;
 
   const onSubmit = (): void => {
     handleAnswer(textAnswer.toUpperCase());
@@ -41,7 +40,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         </>
       ) : (
         <>
-          {answers.map((answer: string, index: number) => (
+          {answers?.map((answer: string, index: number) => (
             <button
               key={index}
               onClick={() => handleAnswer(answer)}
