@@ -6,3 +6,18 @@ export function shuffleArray<T>(array: T[]): T[] {
   }
   return array;
 }
+
+export function getQuestionLimit (difficulty: string): number  {
+    switch (difficulty) {
+      case "easy":
+        return 10;
+      case "medium":
+        return 20;
+      case "hard":
+        return 30;
+      case "sparta":
+        return 40;
+      default:
+        return 10;
+    }
+}

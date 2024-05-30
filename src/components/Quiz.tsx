@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { QuestionCard } from "./QuestionCard";
 import { Summary } from "./Summary";
-import { shuffleArray } from "../utils";
-import { Question } from '../types';
-
-
+import { shuffleArray, getQuestionLimit } from "../utils";
+import { Question } from "../types";
 
 interface QuizProps {
   difficulty: string;
@@ -12,7 +10,6 @@ interface QuizProps {
 }
 
 const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
-  console.log("difficulty: ", difficulty);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -35,21 +32,6 @@ const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
 
     fetchQuestions();
   }, [difficulty]);
-
-  const getQuestionLimit = (difficulty: string): number => {
-    switch (difficulty) {
-      case "easy":
-        return 10;
-      case "medium":
-        return 20;
-      case "hard":
-        return 30;
-      case "sparta":
-        return 40;
-      default:
-        return 10;
-    }
-  };
 
   const handleAnswer = (answer: string) => {
     if (answer === questions[currentQuestionIndex].correct_answer) {
