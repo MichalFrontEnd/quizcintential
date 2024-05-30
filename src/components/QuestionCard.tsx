@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import he from 'he';
 import { shuffleArray } from "../utils";
 import { Question } from "../types";
+
 
 interface QuestionCardProps {
   question: Question;
@@ -26,7 +28,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   return (
     <div>
-      <h2>{question.question}</h2>
+      <h2>{he.decode(question.question)}</h2>
       {question.type === "text" ? (
         <>
           <input
@@ -44,7 +46,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               key={index}
               onClick={() => handleAnswer(answer)}
             >
-              {answer}
+              {he.decode(answer)}
             </button>
           ))}
         </>
