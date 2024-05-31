@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { QuestionCard } from "./QuestionCard";
 import { Summary } from "./Summary";
-import { shuffleArray, getQuestionLimit } from "../utils";
 import { Question } from "../types";
+import { shuffleArray, getQuestionLimit } from "../utils";
 
 interface QuizProps {
   difficulty: string;

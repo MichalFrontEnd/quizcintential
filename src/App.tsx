@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import GlobalStyle from './styles/GlobalStyle'
 import { Quiz } from './components/Quiz';
+import DifficultyMenu from './components/DifficultyMenu';
+import WrapperContainer from './components/molecules/WrapperContainer';
+
 
 const App: React.FC = () => {
   const [difficulty, setDifficulty] = useState<string | null>(null);
@@ -11,22 +14,17 @@ const App: React.FC = () => {
 
   return (
     <>
-    <GlobalStyle />
-    <div>
-      {!difficulty ? (
-        <div>
-          <h1>Select Difficulty</h1>
-          <button onClick={() => handleDifficultyChange('easy')}>Easy</button>
-          <button onClick={() => handleDifficultyChange('medium')}>Moderate</button>
-          <button onClick={() => handleDifficultyChange('hard')}>Madness</button>
-          <button onClick={() => handleDifficultyChange('sparta')}>Sparta</button>
-        </div>
-      ) : (
-        <Quiz difficulty={difficulty} setDifficulty={setDifficulty}/>
+      <GlobalStyle />
+      <WrapperContainer size="sm">
+        {!difficulty ? (
+          <DifficultyMenu onSelectDifficulty={handleDifficultyChange} />
+        ) : (
+          <Quiz difficulty={difficulty} setDifficulty={setDifficulty} />
         )}
-    </div>
-        </>
+      </WrapperContainer>
+    </>
   );
 };
 
 export default App;
+
