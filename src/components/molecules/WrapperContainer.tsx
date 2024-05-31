@@ -7,6 +7,7 @@ const StyledWrapperContainer = styled(Container)`
     border: 10px solid var(--light-color);
     background-color: var(--background-color);
     position: relative;
+    height: 80vh;
     
     &::after {
         content: " ";
