@@ -4,7 +4,6 @@ import { Quiz } from './components/Quiz';
 import DifficultyMenu from './components/DifficultyMenu';
 import WrapperContainer from './components/molecules/WrapperContainer';
 
-
 const App: React.FC = () => {
   const [difficulty, setDifficulty] = useState<string | null>(null);
 
