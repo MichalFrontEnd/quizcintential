@@ -19,7 +19,7 @@ const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
       try {
         const response = await fetch("http://localhost:3001/api/questions");
         const data = await response.json();
-        const results = data.results as Question[]; // Cast to Question[]
+        const results = data.results as Question[];
         const shuffledQuestions = shuffleArray(results).slice(
           0,
           getQuestionLimit(difficulty)
@@ -41,14 +41,14 @@ const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
   };
 
   const restartQuiz = () => {
-    setDifficulty(""); // Reset difficulty to allow user to choose again
+    setDifficulty("");
     setQuestions([]);
     setCurrentQuestionIndex(0);
     setScore(0);
   };
 
   return (
-    <div>
+    <>
       {currentQuestionIndex < questions.length ? (
         <QuestionCard
           question={questions[currentQuestionIndex]}
@@ -61,7 +61,7 @@ const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
           restartQuiz={restartQuiz}
         />
       )}
-    </div>
+    </>
   );
 };
 

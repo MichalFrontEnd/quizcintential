@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import he from "he";
 import { shuffleArray } from "../utils";
 import { Question } from "../types";
+import InnerContainer from "./molecules/InnerContainer";
 
 interface QuestionCardProps {
   question: Question;
@@ -22,11 +23,11 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const onSubmit = (): void => {
     handleAnswer(textAnswer.toUpperCase());
-    setTextAnswer(""); // Reset input after submission
+    setTextAnswer("");
   };
 
   return (
-    <div>
+    <InnerContainer>
       <h2>{he.decode(question.question)}</h2>
       {question.type === "text" ? (
         <>
@@ -50,7 +51,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           ))}
         </>
       )}
-    </div>
+    </InnerContainer>
   );
 };
 
