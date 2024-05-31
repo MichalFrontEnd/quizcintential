@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background: teal;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+    box-sizing: border-box;
   }
 `;
  
