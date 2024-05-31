@@ -4,12 +4,11 @@ import { Stack, Title } from "@mantine/core";
 import CustomButton from "./molecules/CustomButton";
 
 const DifficultyContainer = styled.div`
-  
-display: flex;
+  display: flex;
   flex-direction: column;
   gap: 30%;
   height: 70vh;
-  padding: 3rem 2rem;
+  padding: 3rem;
   text-align: center;
 `;
 
@@ -26,28 +25,28 @@ const DifficultyMenu: React.FC<DifficultyMenuProps> = ({
       <Stack
         align='stretch'
         justify='center'
-        gap='sm'
+        gap='md'
       >
         <CustomButton
-          size='md'
+          size='lg'
           onClick={() => onSelectDifficulty("easy")}
         >
           Easy
         </CustomButton>
         <CustomButton
-          size='md'
+          size='lg'
           onClick={() => onSelectDifficulty("medium")}
         >
           Medium
         </CustomButton>
         <CustomButton
-          size='md'
+          size='lg'
           onClick={() => onSelectDifficulty("hard")}
         >
           Hard
         </CustomButton>
         <CustomButton
-          size='md'
+          size='lg'
           onClick={() => onSelectDifficulty("sparta")}
         >
           Sparta

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledWrapperContainer = styled(Container)`
     outline: 5px solid var(--secondary-color);
     border: 10px solid var(--light-color);
-    background-color: #fffddd;
+    background-color: var(--background-color);
     position: relative;
     
     &::after {
