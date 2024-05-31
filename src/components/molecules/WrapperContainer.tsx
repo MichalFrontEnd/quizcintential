@@ -3,12 +3,11 @@ import { Container, ContainerProps } from '@mantine/core';
 import styled from 'styled-components';
 
 const StyledWrapperContainer = styled(Container)`
-    outline: 5px solid #691d04;
-    border: 10px solid #db4206;
-    background-color: #fffddd;
+    outline: 5px solid var(--secondary-color);
+    border: 10px solid var(--light-color);
+    background-color: var(--background-color);
     position: relative;
     
-
     &::after {
         content: " ";
         position: absolute;
@@ -17,8 +16,8 @@ const StyledWrapperContainer = styled(Container)`
         left: 5px;
         right: 5px;
         bottom: 5px;
-        border: 6px solid #c8ce9f;
-        outline: 7px solid #82350b;
+        border: 6px solid var(--primary-color);
+        outline: 7px solid var(--dark-color);
         pointer-events: none;
       }
 `;
