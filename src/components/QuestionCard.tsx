@@ -6,15 +6,20 @@ import InnerContainer from "./molecules/InnerContainer";
 import TextInputQuestion from "./orgnisms/TextInputQuestion";
 import MultipleChoiceQuestion from "./orgnisms/MultipleChoiceQuestion";
 import BooleanQuestion from "./orgnisms/BooleanQuestion";
+import Counter from "./molecules/Counter";
 
 interface QuestionCardProps {
   question: Question;
+  questions: Question[];
   handleAnswer: (answer: string) => void;
+  current:number
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
   question,
   handleAnswer,
+  questions,
+  current
 }) => {
   // Shuffles all the answer options if the question doesn't require a text input
   const answers =
@@ -26,6 +31,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     <InnerContainer>
       <div className="container__header">
         <h2>{he.decode(question.question)}</h2>
+        <Counter current={current}total={questions.length} />
       </div>
       <div className="container__content">
       {question.type === 'text' && <TextInputQuestion handleAnswer={handleAnswer} />}

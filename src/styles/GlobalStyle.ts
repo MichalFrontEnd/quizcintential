@@ -21,8 +21,21 @@ body {
     margin: 0;
     padding: 2rem 0;
     background: teal;
-    font-family: Open-Sans, Helvetica, Sans-Serif;
     box-sizing: border-box;
+  }
+
+  h1 {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+  }
+
+  h2, h3 {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 600;
+  }
+
+  h4, h5, h6, p, button {
+    font-family: "Roboto Mono", monospace;
   }
 `;
 

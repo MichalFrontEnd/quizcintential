@@ -23,7 +23,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const TextInputQuestion: React.FC<TextInputQuestionProps> = ({
+export const TextInputQuestion: React.FC<TextInputQuestionProps> = ({
   handleAnswer,
 }) => {
   const [textAnswer, setTextAnswer] = useState<string>("");

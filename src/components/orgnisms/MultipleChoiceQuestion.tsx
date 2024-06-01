@@ -8,7 +8,7 @@ interface MultipleChoiceQuestionProps {
   handleAnswer: (answer: string) => void;
 }
 
-const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProps> = ({
+export const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProps> = ({
   answers,
   handleAnswer,
 }) => {

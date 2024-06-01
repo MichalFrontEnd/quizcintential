@@ -3,6 +3,7 @@ import { QuestionCard } from "./QuestionCard";
 import { Summary } from "./Summary";
 import { Question } from "../types";
 import { shuffleArray, getQuestionLimit } from "../utils";
+import { Loader } from '@mantine/core';
 
 interface QuizProps {
   difficulty: string;
@@ -13,6 +14,8 @@ export const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [showSummary, setShowSummary] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -25,6 +28,7 @@ export const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
           getQuestionLimit(difficulty)
         );
         setQuestions(shuffledQuestions);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching questions:", error);
       }
@@ -38,6 +42,9 @@ export const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
       setScore(score + 1);
     }
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    if (currentQuestionIndex + 1 >= questions.length) {
+      setShowSummary(true);
+    }
   };
 
   const restartQuiz = () => {
@@ -45,14 +52,21 @@ export const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
     setQuestions([]);
     setCurrentQuestionIndex(0);
     setScore(0);
+    setShowSummary(false); //
   };
+
+  if (loading) {
+    return <Loader size="xl" />;
+  }
 
   return (
     <>
-      {currentQuestionIndex < questions.length ? (
+{currentQuestionIndex < questions.length ? (
         <QuestionCard
           question={questions[currentQuestionIndex]}
           handleAnswer={handleAnswer}
+          questions={questions}
+          current={currentQuestionIndex}
         />
       ) : (
         <Summary

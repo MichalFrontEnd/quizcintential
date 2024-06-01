@@ -2,7 +2,6 @@ import React from "react";
 import { Question } from "../types";
 import CustomButton from "./molecules/CustomButton";
 import InnerContainer from "./molecules/InnerContainer";
-import { Title } from "@mantine/core";
 import styled from "styled-components";
 interface SummaryProps {
   score: number;
@@ -15,7 +14,8 @@ const SummaryContainer = styled(InnerContainer)`
   justify-content: space-between;
 
   .container__header {
-    padding: 3rem;
+    padding: 2rem;
+    font-size: 0.75rem;
     outline: 5px solid var(--secondary-color);
     border: 10px solid var(--light-color);
     background-color: var(--background-color);
@@ -43,7 +43,7 @@ const SummaryContainer = styled(InnerContainer)`
 
   .container__footer {
    margin-top: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -55,7 +55,7 @@ export const Summary: React.FC<SummaryProps> = ({
   return (
     <SummaryContainer>
       <div className='container__header'>
-        <Title>Quiz Complete!</Title>
+        <h1 >Quiz Complete!</h1>
       </div>
       <div className='container__content'>
         <p>Correct Answers: {score}</p>
