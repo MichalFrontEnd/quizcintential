@@ -12,12 +12,14 @@ const StyledButton = styled(Button)`
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  font-size: 1rem;
 
+  
   &:hover {
     background-color: var(--neutral-accent-color) !important;
     transform: translateY(-5px);
   }
-
+  
   &:active {
     background-color: #c0c0c0 !important;
     transform: translateY(5px);
