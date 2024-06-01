@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const InnerContainer = styled.div`
+export const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 3rem;

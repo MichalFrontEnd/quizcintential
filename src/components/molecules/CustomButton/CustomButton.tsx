@@ -26,7 +26,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const CustomButton: React.FC<ButtonProps & { onClick?: () => void }> = (props) => {
+export const CustomButton: React.FC<ButtonProps & { onClick?: () => void }> = (props) => {
   return <StyledButton {...props}>{props.children}</StyledButton>;
 };
 

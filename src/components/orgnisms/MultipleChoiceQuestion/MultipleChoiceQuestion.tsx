@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "../molecules/CustomButton";
+import CustomButton from "../../molecules/CustomButton/CustomButton";
 import { Stack } from "@mantine/core";
 import he from "he";
 
@@ -8,7 +8,7 @@ interface MultipleChoiceQuestionProps {
   handleAnswer: (answer: string) => void;
 }
 
-const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProps> = ({
+export const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProps> = ({
   answers,
   handleAnswer,
 }) => {
