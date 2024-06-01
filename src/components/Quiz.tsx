@@ -9,7 +9,7 @@ interface QuizProps {
   setDifficulty: (difficulty: string) => void;
 }
 
-const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
+export const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -65,4 +65,4 @@ const Quiz: React.FC<QuizProps> = ({ difficulty, setDifficulty }) => {
   );
 };
 
-export { Quiz };
+export default Quiz ;

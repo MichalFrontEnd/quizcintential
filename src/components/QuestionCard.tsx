@@ -24,10 +24,14 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   return (
     <InnerContainer>
-      <h2>{he.decode(question.question)}</h2>
+      <div className="container__header">
+        <h2>{he.decode(question.question)}</h2>
+      </div>
+      <div className="container__content">
       {question.type === 'text' && <TextInputQuestion handleAnswer={handleAnswer} />}
       {question.type === 'multiple' && <MultipleChoiceQuestion answers={answers} handleAnswer={handleAnswer} />}
       {question.type === 'boolean' && <BooleanQuestion answers={answers} handleAnswer={handleAnswer} />}
+      </div>
     </InnerContainer>
   );
 };

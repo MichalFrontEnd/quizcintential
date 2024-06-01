@@ -12,7 +12,9 @@ const DifficultyMenu: React.FC<DifficultyMenuProps> = ({
 }) => {
   return (
     <InnerContainer>
-      <Title>Select Difficulty Level</Title>
+       <div className="container__header"><Title>Select Difficulty Level</Title>
+       </div>
+       <div className="container__content">
       <Stack
         align='stretch'
         justify='center'
@@ -43,6 +45,7 @@ const DifficultyMenu: React.FC<DifficultyMenuProps> = ({
           Sparta
         </CustomButton>
       </Stack>
+      </div>
     </InnerContainer>
   );
 };
