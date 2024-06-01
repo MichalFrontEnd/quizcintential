@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GlobalStyle from './styles/GlobalStyle'
-import { Quiz } from './components/Quiz';
-import DifficultyMenu from './components/DifficultyMenu';
+import { Quiz } from './components/sections/Quiz/Quiz';
+import DifficultyMenu from './components/orgnisms/DifficultyMenu';
 import WrapperContainer from './components/molecules/WrapperContainer';
 
 const App: React.FC = () => {

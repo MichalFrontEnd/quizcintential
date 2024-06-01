@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomButton from "../molecules/CustomButton";
+import CustomButton from "../../molecules/CustomButton";
 import { Group } from '@mantine/core';
 
 
@@ -8,7 +8,7 @@ interface BooleanQuestionProps {
   handleAnswer: (answer: string) => void;
 }
 
-const BooleanQuestion: React.FC<BooleanQuestionProps> = ({ answers, handleAnswer }) => {
+export const BooleanQuestion: React.FC<BooleanQuestionProps> = ({ answers, handleAnswer }) => {
   return (
     <Group justify="center">
       {answers?.map((answer, index) => (

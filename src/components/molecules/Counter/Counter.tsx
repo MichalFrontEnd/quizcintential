@@ -5,7 +5,7 @@ interface CounterProps {
   total: number;
 }
 
-const Counter: React.FC<CounterProps> = ({ current, total }) => {
+export const Counter: React.FC<CounterProps> = ({ current, total }) => {
   return (
     <div>
       <h3>{current+1} / {total}</h3>

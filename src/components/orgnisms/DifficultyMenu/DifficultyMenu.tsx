@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack } from "@mantine/core";
-import CustomButton from "./molecules/CustomButton";
-import InnerContainer from "./molecules/InnerContainer";
+import CustomButton from "../../molecules/CustomButton";
+import InnerContainer from "../../molecules/InnerContainer";
 
 interface DifficultyMenuProps {
   onSelectDifficulty: (difficulty: string) => void;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CustomButton from "../molecules/CustomButton";
+import CustomButton from "../../molecules/CustomButton/CustomButton";
 import { Stack } from "@mantine/core";
 import styled from "styled-components";
 

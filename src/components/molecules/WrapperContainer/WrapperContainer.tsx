@@ -26,7 +26,7 @@ const StyledWrapperContainer = styled(Container)`
   }
 `;
 
-const WrapperContainer: React.FC<ContainerProps> = (props) => {
+export const WrapperContainer: React.FC<ContainerProps> = (props) => {
   return (
     <StyledWrapperContainer {...props}>{props.children}</StyledWrapperContainer>
   );

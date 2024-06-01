@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "../molecules/CustomButton";
+import CustomButton from "../../molecules/CustomButton/CustomButton";
 import { Stack } from "@mantine/core";
 import he from "he";
 
